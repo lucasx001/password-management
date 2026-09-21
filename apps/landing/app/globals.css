@@ -120,6 +120,25 @@ a {
 .text-link:hover {
   color: #a64e35;
 }
+.github-icon-link {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+.github-icon-link:hover {
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+.github-icon {
+  width: 18px;
+  height: 18px;
+}
 .language-switcher {
   display: inline-flex;
   align-items: center;
@@ -1037,12 +1056,20 @@ h2 {
   }
 }
 @media (max-width: 380px) {
+  .navigation {
+    gap: 8px;
+  }
+  .github-icon-link {
+    width: 28px;
+    height: 28px;
+  }
   .language-switcher {
     font-size: 10px;
   }
   .button-small {
     padding: 11px 13px;
-    gap: 10px;
+    gap: 6px;
+    font-size: 11px;
   }
   .mobile-break {
     display: block;

@@ -2,6 +2,11 @@ export type Locale = 'zh' | 'en';
 
 export const messages = {
   zh: {
+    site: {
+      title: 'Vault — 极简密码管理器',
+      description:
+        'Vault 是一款本地优先的密码管理器，用来存储、生成和整理数字凭据。',
+    },
     language: {
       label: '语言',
       chinese: '中文',
@@ -13,6 +18,7 @@ export const messages = {
       security: '隐私与安全',
       download: '下载',
       start: '开始使用',
+      github: 'GitHub 项目',
       downloadApp: '下载应用',
       openMenu: '打开菜单',
       closeMenu: '关闭菜单',
@@ -112,6 +118,11 @@ export const messages = {
     },
   },
   en: {
+    site: {
+      title: 'Vault — A quiet password manager',
+      description:
+        'Vault is a local-first password manager for storing, generating, and organizing digital credentials.',
+    },
     language: {
       label: 'Language',
       chinese: '中文',
@@ -123,6 +134,7 @@ export const messages = {
       security: 'Security',
       download: 'Download',
       start: 'Get started',
+      github: 'GitHub repository',
       downloadApp: 'Download the app',
       openMenu: 'Open menu',
       closeMenu: 'Close menu',

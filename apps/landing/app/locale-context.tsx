@@ -13,6 +13,7 @@ const LocaleContext = createContext<LocaleContextValue | null>(null);
 
 function setDocumentLocale(locale: Locale) {
   document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en';
+  document.title = messages[locale].site.title;
 }
 
 export function LocaleProvider({

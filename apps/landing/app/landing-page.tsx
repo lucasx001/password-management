@@ -2,10 +2,13 @@
 
 import Image from 'next/image';
 import { DesktopDownloads } from './desktop-downloads';
+import { GithubIcon } from './github-icon';
 import { LocaleProvider, useLocale } from './locale-context';
 import { MobileNav } from './mobile-nav';
 import { VaultDemo } from './vault-demo';
 import type { Locale } from './i18n';
+
+const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL;
 
 function LanguageSwitcher() {
   const { locale, messages, setLocale } = useLocale();
@@ -63,6 +66,13 @@ function LandingContent() {
             <a href='#download'>{navigation.download}</a>
           </div>
           <LanguageSwitcher />
+          {githubUrl ? (
+            <GithubIcon
+              className='github-icon-link header-github-link'
+              href={githubUrl}
+              label={navigation.github}
+            />
+          ) : null}
           <a href='#download' className='button button-small'>
             {navigation.start} <span aria-hidden='true'>↗</span>
           </a>
@@ -244,6 +254,9 @@ function LandingContent() {
         </a>
         <p>{footer.tagline}</p>
         <a href='#download'>{footer.download}</a>
+        {githubUrl ? (
+          <GithubIcon href={githubUrl} label={navigation.github} />
+        ) : null}
         <span>© {new Date().getFullYear()} Vault</span>
       </footer>
     </div>

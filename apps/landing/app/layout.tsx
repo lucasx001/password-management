@@ -2,13 +2,10 @@ import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { localeFromAcceptLanguage } from './i18n';
+import { localeFromAcceptLanguage, messages } from './i18n';
 import './globals.css';
 
-export const metadata: Metadata = {
-  title: 'Vault — 极简密码管理器 · A quiet password manager',
-  description:
-    'Vault is a local-first password manager for storing, generating, and organizing digital credentials. Vault 是一款本地优先的密码管理器。',
+const sharedMetadata: Metadata = {
   manifest: '/site.webmanifest',
   icons: {
     icon: [
@@ -19,6 +16,20 @@ export const metadata: Metadata = {
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
   },
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  const requestHeaders = await headers();
+  const locale = localeFromAcceptLanguage(
+    requestHeaders.get('accept-language')
+  );
+  const site = messages[locale].site;
+
+  return {
+    ...sharedMetadata,
+    title: site.title,
+    description: site.description,
+  };
+}
 
 export default async function RootLayout({
   children,
